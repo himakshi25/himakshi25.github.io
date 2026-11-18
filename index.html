@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Job-Hunt &amp; Application Job — Template for Muse</title>
+  <meta name="description" content="A shareable template that sets up a daily job-hunt for you in Muse: resume-first setup, a trial run over the last week, then daily applications to fresh postings — never guessing your answers." />
+  <meta property="og:title" content="Daily Job-Hunt & Application Job — Template for Muse" />
+  <meta property="og:description" content="Give this template to your Muse and say: “Set this up for me.” Resume-first, trial run immediately, then daily applications with a summary." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#6d4aff" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" />
+  <style>
+    :root{
+      --bg:#f7f7fb; --surface:#ffffff; --surface-2:#f1efff; --text:#171321; --muted:#5b556e;
+      --border:#e6e2f2; --accent:#6d4aff; --accent-2:#00a887; --accent-text:#ffffff;
+      --code-bg:#171321; --code-text:#f4f1ff; --radius:16px; --max:920px;
+      --shadow:0 10px 30px rgba(23,19,33,.08);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#12101a; --surface:#1c1930; --surface-2:#262046; --text:#f4f1ff; --muted:#b8b0d1; --border:#332d55; --code-bg:#0b0914; --shadow:0 10px 30px rgba(0,0,0,.35); }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:var(--accent);text-underline-offset:3px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    /* Nav */
+    header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--text)}
+    .nav-links{display:flex;gap:18px;font-size:.95rem}
+    .nav-links a{color:var(--muted);text-decoration:none}
+    .nav-links a:hover{color:var(--text)}
+    @media(max-width:640px){.nav-links{display:none}}
+    /* Hero */
+    .hero{padding:64px 0 36px;text-align:center}
+    .badge{display:inline-block;background:var(--surface-2);border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:999px;font-size:.85rem;font-weight:600}
+    h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;letter-spacing:-.03em;margin:18px 0 14px}
+    h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lede{font-size:1.15rem;color:var(--muted);max-width:680px;margin:0 auto 26px}
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+    .btn{appearance:none;border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:700;font-size:.98rem}
+    .btn-primary{background:var(--accent);color:var(--accent-text);box-shadow:var(--shadow)}
+    .btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+    .btn:active{transform:translateY(1px)}
+    .hint{font-size:.9rem;color:var(--muted)}
+    .hint code{background:var(--surface-2);padding:2px 7px;border-radius:6px}
+    /* Cards / sections */
+    section{padding:28px 0}
+    h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 8px}
+    h3{margin:0 0 6px;font-size:1.05rem}
+    .section-lede{color:var(--muted);margin:0 0 20px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .card p{color:var(--muted);margin:0}
+    .step-num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+    ol.steps, ul.clean{margin:0;padding-left:1.25rem}
+    ol.steps li, ul.clean li{margin:10px 0}
+    ol.steps li::marker{font-weight:800;color:var(--accent)}
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .panel ul{margin:0;padding-left:1.25rem}
+    .panel li{margin:8px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:var(--surface-2);border:1px solid var(--border);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.95rem}
+    .callout{border-left:4px solid var(--accent-2);background:var(--surface);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px}
+    .callout p{margin:0}
+    /* Code / template block */
+    .code-head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--code-bg);color:var(--code-text);border-radius:var(--radius) var(--radius) 0 0;padding:12px 16px}
+    .code-head strong{font-size:.95rem}
+    .copy-btn{background:#ffffff22;color:#fff;border:1px solid #ffffff44;padding:7px 12px;border-radius:999px;cursor:pointer;font-weight:700}
+    pre{margin:0;background:var(--code-bg);color:var(--code-text);border-radius:0 0 var(--radius) var(--radius);padding:18px;overflow:auto;white-space:pre-wrap;font-size:.92rem;line-height:1.6}
+    details{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+    summary{cursor:pointer;font-weight:800}
+    footer{border-top:1px solid var(--border);padding:28px 0 44px;color:var(--muted);font-size:.95rem;text-align:center}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;transition:.25s}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media print{.nav,.cta,.toast{display:none} body{background:#fff}}
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">💼 Daily Job-Hunt Template</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#setup">Setup</a>
+      <a href="#daily">Daily job</a>
+      <a href="#get">Get the template</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="badge">Shareable template · For Muse · No code needed</span>
+    <h1>Your Muse applies to jobs <span class="grad">daily, for you.</span></h1>
+    <p class="lede">Give this template to your Muse and say <strong>“Set this up for me.”</strong> Most details are pulled from your resume automatically — you only answer what Muse can’t get from it.</p>
+    <div class="cta">
+      <button class="btn btn-primary" id="copyTop" type="button">📋 Copy the full template</button>
+      <button class="btn btn-secondary" id="downloadTop" type="button">⬇️ Download .md file</button>
+      <a class="btn btn-secondary" href="#get">Read it first ↓</a>
+    </div>
+    <p class="hint">Then paste it into Muse, or save it as <code>Daily_Job_Application_Job_Template.md</code> and share that file.</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="section-lede">Three steps, once. After that you just read a daily summary.</p>
+    <div class="grid">
+      <div class="card"><div class="step-num">1</div><h3>Resume first</h3><p>Muse reviews your resume, suggests changes to make it interview-ready, and applies the ones you approve. Every application uses this version.</p></div>
+      <div class="card"><div class="step-num">2</div><h3>Trial run, immediately</h3><p>Muse extracts everything it can from your resume, asks only what’s missing, then runs once right away — looking back over the <strong>last 1 week</strong> of postings.</p></div>
+      <div class="card"><div class="step-num">3</div><h3>Daily job, scheduled</h3><p>Each day Muse searches the <strong>last 25 hours</strong>, applies to your best matches, and sends you a summary of what was applied, what’s stuck, and any resume tips.</p></div>
+    </div>
+  </section>
+
+  <!-- SETUP -->
+  <section id="setup">
+    <h2>How setup works <span style="color:var(--muted);font-size:1rem;font-weight:600">(first time only)</span></h2>
+    <p class="section-lede">Muse only asks about details it could not extract properly, or that are ambiguous.</p>
+    <div class="panel">
+      <ol class="steps">
+        <li><strong>Resume first.</strong> You give Muse your resume. Muse reviews it and suggests changes to make it as strong as possible for landing interviews, and applies the ones you approve. Do not skip this: every application uses this resume.</li>
+        <li><strong>Muse extracts everything it can from the resume</strong> — name, contact details, experience, skills, education, certifications.</li>
+        <li><strong>Muse asks the remaining questions it needs:</strong>
+          <ul>
+            <li>Target job titles and any industries / companies to prefer or exclude</li>
+            <li>Location(s) and work type: remote / hybrid / on-site, and where each is acceptable</li>
+            <li>Employment type: full-time only, or are contracts OK?</li>
+            <li>Salary band: minimum–maximum and currency; what to do with postings that list no salary</li>
+            <li>Relocation: willing or not, and where</li>
+            <li>Work authorization: legally authorized to work in the target country? Sponsorship needed, now or in future?</li>
+            <li>Earliest start date / notice period</li>
+            <li>Screening answers: years of experience per key skill, and a salary-expectation answer for forms</li>
+            <li>Approval mode: apply automatically wherever every answer is on file, or prepare everything for your approval first</li>
+            <li><strong>Where you want the daily summary</strong> (this chat, email, or another channel) — Muse only asks you to sign in to something after you confirm the channel that needs it</li>
+            <li>Run time and timezone (e.g. daily at 5:00 PM), and the stop condition (e.g. until you land a job)</li>
+          </ul>
+        </li>
+        <li><strong>Trial run immediately.</strong> The trial run looks back over the <strong>last 1 week</strong> of postings. If any posting needs a sign-in, Muse asks you at that moment — and the same applies in future daily runs.</li>
+        <li><strong>Then Muse schedules the daily job.</strong> Setup is done; you only read the daily summary and clear anything stuck.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section>
+    <h2>Where Muse looks for jobs</h2>
+    <p class="section-lede">A living list — whenever Muse finds a new worthwhile source, it adds it, starts using it, and notes the addition in that day’s summary.</p>
+    <div class="chips">
+      <span class="chip">LinkedIn Jobs</span>
+      <span class="chip">Indeed (your country’s site)</span>
+      <span class="chip">BuiltIn</span>
+      <span class="chip">Wellfound</span>
+      <span class="chip">Company career pages</span>
+      <span class="chip">General web search</span>
+    </div>
+  </section>
+
+  <!-- DAILY -->
+  <section id="daily">
+    <h2>What the daily job does</h2>
+    <div class="panel">
+      <ol class="steps">
+        <li>Searches the sources above for postings published in the <strong>last 25 hours</strong> matching your titles, skills, location/type, and salary band. <em>(25 hours, not 24, so nothing falls into the gap between runs.)</em></li>
+        <li>Keeps a log of every posting seen, so nothing is ever applied to twice.</li>
+        <li>Verifies each posting is real and still open.</li>
+        <li><strong>Applies to at most 10 postings per day</strong>, using your resume.</li>
+        <li>Submits only when every required field and screening question can be answered truthfully from your confirmed answers on file. <strong>Never guesses</strong> — especially about work authorization, sponsorship, relocation, start date, or salary.</li>
+        <li><strong>Stuck postings never block the rest.</strong> If one application needs your action (a sign-in, a CAPTCHA, an answer Muse does not have), Muse leaves it pending, moves on in a separate browser window, and lists it in your summary with exactly what it needs. Any new answer you give is saved for next time.</li>
+        <li><strong>Resume improvement loop.</strong> After each run, Muse compares your resume against the postings it saw and suggests improvements in the summary.</li>
+        <li>Sends the daily summary to your chosen channel: applied (with confirmations), stuck, and resume suggestions.</li>
+        <li><strong>Asks if you want anything changed.</strong> Every summary ends by asking whether you want to adjust titles, salary band, locations, sources, the daily cap, or approval mode.</li>
+      </ol>
+    </div>
+    <div style="height:16px"></div>
+    <div class="callout">
+      <p><strong>Scope:</strong> Muse’s job is to <strong>apply for jobs daily</strong>. Everything after applying — replies, interviews, offers — is yours to handle. Muse does <strong>not</strong> ask for your email sign-in to track replies or interviews, unless you choose email as your summary channel — then it asks once, after you confirm.</p>
+    </div>
+  </section>
+
+  <!-- GET THE TEMPLATE -->
+  <section id="get">
+    <h2>Get the template</h2>
+    <p class="section-lede">This is the exact text to give your Muse. Copy it, download it as a <code>.md</code> file, or expand it below to read the job instructions Muse fills in from your setup.</p>
+
+    <div class="code-head">
+      <strong>Daily_Job_Application_Job_Template.md</strong>
+      <button class="copy-btn" id="copyCode" type="button">Copy</button>
+    </div>
+    <pre id="jobInstructions">First, run a one-time trial run covering the last 1 week of postings. Then schedule a daily job at [time, timezone] that:
+1. Searches the sources listed above (keeping that list updated as new worthwhile sources appear) for postings published in the last 25 hours matching my titles, skills, employment type, work model/locations, and salary band [min–max, currency]; excludes [excluded companies/types].
+2. Keeps a log of every posting seen so nothing is ever applied to twice.
+3. Verifies each posting is real and still open on the employer’s site.
+4. Applies to at most 10 postings per day with my resume, and only when every required field/screening question can be answered truthfully from my confirmed answers on file. Never guess — especially about work authorization, sponsorship, relocation, start date, or salary.
+5. If an application gets stuck waiting for my action, leaves it pending, reports it in the summary, and continues with the other postings in a separate browser window — one stuck posting never blocks the rest.
+6. After each run, checks my resume against the postings seen and suggests improvements that would help me land interviews.
+7. Reports daily to [chosen channel]: what was applied (with confirmations), what is stuck and what it needs from me, and any resume suggestions — and ends by asking whether I want any of my requirements changed, applying what I confirm to the next runs.
+8. Runs until I say I have landed a job.</pre>
+
+    <div style="height:16px"></div>
+    <details>
+      <summary>Publishing this page on GitHub Pages</summary>
+      <ol class="steps">
+        <li>Create a new GitHub repository (public).</li>
+        <li>Add this <code>index.html</code> to the root of the repository — and, if you like, the <code>.md</code> template file alongside it.</li>
+        <li>In the repo, go to <strong>Settings → Pages</strong>, set <strong>Source: Deploy from a branch</strong>, branch <code>main</code>, folder <code>/ (root)</code>, and Save.</li>
+        <li>Wait a minute, then visit <code>https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/</code> — that’s your live page.</li>
+      </ol>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Shareable template for Muse users · Built to be copied and reused · No personal data is included in the template.<br />
+    Made with Muse.
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copied ✓</div>
+
+<!-- Full template text: used by Copy / Download, so this page works as a single file -->
+<textarea id="template-md" hidden aria-hidden="true"># Shareable Template: Daily Job-Hunt &amp; Application Job (for Muse)
+
+Give this file to your Muse and say: "Set this up for me." Muse then runs the setup below with you. Most details are pulled from your resume automatically — you only answer what Muse cannot get from it.
+
+## How setup works (first time only)
+
+1. **Resume first.** You give Muse your resume. Muse reviews it and suggests changes to make it as strong as possible for landing interviews, and applies the ones you approve. Do not skip this: every application uses this resume.
+2. **Muse extracts everything it can from the resume** — name, contact details, experience, skills, education, certifications. It only asks you about details it could not extract properly or that are ambiguous.
+3. **Muse asks the remaining questions it needs:**
+   - Target job titles and any industries/companies to prefer or exclude
+   - Location(s) and work type: remote / hybrid / on-site, and where each is acceptable
+   - Employment type: full-time only, or are contracts OK?
+   - Salary band: minimum–maximum and currency; what to do with postings that list no salary
+   - Relocation: willing or not, and where
+   - Work authorization: legally authorized to work in the target country? Sponsorship needed, now or in future?
+   - Earliest start date / notice period
+   - Screening answers: years of experience per key skill, and a salary-expectation answer for forms
+   - Approval mode: apply automatically wherever every answer is on file, or prepare everything for your approval first
+   - **Where you want the daily summary** (this chat, email, or another channel) — Muse only asks you to sign in to something after you confirm the channel that needs it
+   - Run time and timezone (e.g. daily at 5:00 PM), and the stop condition (e.g. until you land a job)
+4. **Trial run immediately.** Muse runs the job once, right then. The trial run looks back over the **last 1 week** of postings, so you start with everything currently open, not just today's. If any posting needs a sign-in, it asks you at that moment — and the same applies in future daily runs whenever a new sign-in comes up.
+5. **Then Muse schedules the daily job.** Setup is done; you only read the daily summary and clear anything stuck.
+
+## Where Muse looks for jobs
+
+- LinkedIn Jobs
+- Indeed (your country's site)
+- BuiltIn
+- Wellfound
+- Company career pages directly (employers' own sites and their application pages)
+- General web search, to catch postings on smaller boards and company pages the big boards miss
+
+This list is a living list: whenever Muse finds a new worthwhile board or source, it adds it here, starts using it, and notes the addition in that day's summary.
+
+## What the daily job does
+
+1. Searches the sources above for postings published in the **last 25 hours** matching your titles, skills, location/type, and salary band. (25 hours, not 24, so nothing falls into the gap between runs.)
+2. Keeps a log of every posting seen, so nothing is ever applied to twice.
+3. Verifies each posting is real and still open.
+4. **Applies to at most 10 postings per day**, using your resume.
+5. Submits only when every required field and screening question can be answered truthfully from your confirmed answers on file. **Never guesses** — especially about work authorization, sponsorship, relocation, start date, or salary.
+6. **Stuck postings never block the rest.** If one application needs your action (a sign-in, a CAPTCHA, an answer Muse does not have), Muse leaves it pending, moves on, and keeps applying to the others in a separate browser window. Whenever you next open Muse, you can complete the pending action. Every stuck posting appears in your daily summary with exactly what it needs from you. Any new answer you give is saved, so future applications do not get stuck on it again.
+7. **Resume improvement loop.** After each run, Muse compares your resume against the postings it saw. If there is scope to improve it for interviews (missing keywords recruiters search for, weak bullets), it suggests the changes in the summary.
+8. Sends the daily summary to your chosen channel: which postings it applied to (with confirmations), which are stuck and what they need, and any resume suggestions.
+9. **Asks if you want anything changed.** Requirements change over time, so every summary ends by asking whether you want to adjust anything — titles, salary band, locations, sources, the daily cap, approval mode. Anything you confirm is updated in the job and your saved answers, so the next run uses it.
+
+## Scope — what Muse does and does not do
+
+- Muse's job is to **apply for jobs daily**. Everything after applying — replies, interviews, offers — is yours to handle.
+- Muse does **not** ask for your email sign-in to track replies or interviews. The only exception: if you choose email as your summary channel, it asks for that sign-in once, after you confirm.
+
+## The job instructions (Muse fills these in from your setup)
+
+"First, run a one-time trial run covering the last 1 week of postings. Then schedule a daily job at [time, timezone] that:
+1. Searches the sources listed above (keeping that list updated as new worthwhile sources appear) for postings published in the last 25 hours matching my titles, skills, employment type, work model/locations, and salary band [min–max, currency]; excludes [excluded companies/types].
+2. Keeps a log of every posting seen so nothing is ever applied to twice.
+3. Verifies each posting is real and still open on the employer's site.
+4. Applies to at most 10 postings per day with my resume, and only when every required field/screening question can be answered truthfully from my confirmed answers on file. Never guess — especially about work authorization, sponsorship, relocation, start date, or salary.
+5. If an application gets stuck waiting for my action, leaves it pending, reports it in the summary, and continues with the other postings in a separate browser window — one stuck posting never blocks the rest.
+6. After each run, checks my resume against the postings seen and suggests improvements that would help me land interviews.
+7. Reports daily to [chosen channel]: what was applied (with confirmations), what is stuck and what it needs from me, and any resume suggestions — and ends by asking whether I want any of my requirements changed, applying what I confirm to the next runs.
+8. Runs until I say I have landed a job."
+</textarea>
+
+<script>
+  // NOTE: For the *complete* unabridged template, keep Daily_Job_Application_Job_Template.md
+  // in the same repo/folder. Copy/Download below try that file first, and fall back to the text above.
+  const toast = document.getElementById('toast');
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 2200); }
+
+  async function getTemplateText(){
+    try {
+      const r = await fetch('Daily_Job_Application_Job_Template.md');
+      if (r.ok) { const t = await r.text(); if (t && t.length > 500) return t; }
+    } catch(e) {}
+    return document.getElementById('template-md').value;
+  }
+  async function copyTemplate(){
+    const text = await getTemplateText();
+    try { await navigator.clipboard.writeText(text); showToast('Full template copied ✓'); }
+    catch(e){
+      const ta = document.getElementById('template-md'); ta.hidden = false; ta.select();
+      document.execCommand('copy'); ta.hidden = true; showToast('Template copied ✓');
+    }
+  }
+  async function downloadTemplate(){
+    const text = await getTemplateText();
+    const blob = new Blob([text], {type:'text/markdown'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Daily_Job_Application_Job_Template.md';
+    a.click(); URL.revokeObjectURL(a.href); showToast('Downloading template…');
+  }
+  document.getElementById('copyTop').addEventListener('click', copyTemplate);
+  document.getElementById('downloadTop').addEventListener('click', downloadTemplate);
+  document.getElementById('copyCode').addEventListener('click', async () => {
+    const text = document.getElementById('jobInstructions').innerText;
+    try { await navigator.clipboard.writeText(text); showToast('Job instructions copied ✓'); } catch(e){ showToast('Copy failed — select the text manually'); }
+  });
+</script>
+</body>
+</html>
